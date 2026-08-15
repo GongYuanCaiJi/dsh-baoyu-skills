@@ -1,0 +1,96 @@
+{
+  "name": "dsh-baoyu-skills",
+  "version": "0.1.0",
+  "description": "宝玉技能库（移植自 JimLiu/baoyu-skills）",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "main": "index.js",
+  "types": "index.d.ts",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node ./scripts/run-node-tests.mjs",
+    "test:coverage": "node ./scripts/run-node-tests.mjs --experimental-test-coverage",
+    "verify:skill-release-commits": "node ./scripts/verify-skill-release-commits.mjs",
+    "pretest": "cd skills/baoyu-post-to-wechat/scripts && npm install --no-audit --no-fund --ignore-scripts --no-package-lock",
+    "prepare": "node verify-fidelity.mjs",
+    "prepack": "node verify-fidelity.mjs",
+    "prepublishOnly": "npm test"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-skill": "0.1.0-rc.6",
+    "pdf-lib": "^1.17.1",
+    "pptxgenjs": "^4.0.1",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "linkedom": "^0.18.12",
+    "turndown": "^7.2.2",
+    "turndown-plugin-gfm": "^1.0.2",
+    "tsx": "^4.20.5"
+  },
+  "overrides": {
+    "@xmldom/xmldom": "0.8.13"
+  },
+  "files": [
+    "skills/",
+    "!**/node_modules/",
+    "packages/",
+    "docs/",
+    "screenshots/",
+    "scripts/",
+    ".claude-plugin/",
+    ".claude/",
+    "CHANGELOG.md",
+    "CHANGELOG.zh.md",
+    "CLAUDE.md",
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "index.d.ts",
+    "cordis.patch.yml",
+    "verify-fidelity.mjs",
+    "THIRD_PARTY_NOTICES.md",
+    "THIRD_PARTY_NOTICES.sha256",
+    "test/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GongYuanCaiJi/dsh-baoyu-skills.git"
+  },
+  "homepage": "https://github.com/GongYuanCaiJi/dsh-baoyu-skills",
+  "bugs": {
+    "url": "https://github.com/GongYuanCaiJi/dsh-baoyu-skills/issues"
+  },
+  "author": "GongYuanCaiJi",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "dsh",
+    "baoyu-skills",
+    "baoyu",
+    "skills",
+    "claude-code",
+    "codex",
+    "content-generation",
+    "image-generation",
+    "markdown",
+    "wechat",
+    "weibo",
+    "youtube",
+    "translation",
+    "chinese",
+    "中文",
+    "技能"
+  ]
+}
